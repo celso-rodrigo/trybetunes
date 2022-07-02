@@ -38,7 +38,6 @@ button:disabled {
   display: flex;
   height: 100%;
   justify-content: space-around;
-  width: 100%;
 }
 
 .button {
@@ -65,12 +64,22 @@ button:disabled {
 
 .loading {
   animation: loading 0.3s linear infinite;
-  border: 7px solid rgb(200, 200, 200);
   border-radius: 100%;
-  border-top-color: var(--color4);
   color: transparent;
-  height: 50px;
-  width: 50px;
+}
+
+.big {
+  border: 10px solid rgb(200, 200, 200);
+  border-top-color: var(--color4);
+  height: 100px;
+  width: 100px;
+}
+
+.small {
+  border: 3px solid rgb(200, 200, 200);
+  border-top-color: var(--color4);
+  height: 35px;
+  width: 35px;
 }
 
 @keyframes loading {

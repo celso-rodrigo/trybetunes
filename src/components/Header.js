@@ -39,7 +39,7 @@ class Header extends Component {
       <header data-testid="header-component">
         <div className="header-text">
           { loading
-            ? <Loading />
+            ? <Loading loading="small loading" />
             : <p data-testid="header-user-name" className="userName">{ user }</p> }
           <p>Trybetunes</p>
         </div>

@@ -41,7 +41,7 @@ class Login extends Component {
       <div data-testid="page-login" className="login-container">
         { loguedIn && <Redirect to="/search" /> }
         { loading
-          ? <Loading />
+          ? <Loading loading="big loading" />
           : loginPage() }
 
       </div>
