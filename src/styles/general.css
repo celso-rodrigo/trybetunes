@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap') ;
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,100&family=Lobster&display=swap') ;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  --color1: rgb(69, 63, 58);
+
+  --color2: rgb(255, 250, 255);
+
+  --color3: rgb(120, 128, 181);
+
+  --color4: rgb(30, 168, 150);
+
+  --color5: rgb(82, 63, 56);
+
+  --font1: lobster , cursive;
+
+  --font2: josefin sans , sans-serif;
+}
+
+.loading-container {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.loading {
+  animation: loading 0.3s linear infinite;
+  border: 7px solid rgb(200, 200, 200);
+  border-radius: 100%;
+  border-top-color: var(--color4);
+  color: transparent;
+  height: 50px;
+  width: 50px;
+}
+
+@keyframes loading {
+
+  to {
+    transform: rotate(1turn);
+  }
+}

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Loading from '../components/Loading';
+import '../styles/general.css';
+import '../styles/login.css';
 
 class Login extends Component {
   render() {
@@ -14,7 +16,7 @@ class Login extends Component {
     } = this.props;
 
     const loginPage = () => (
-      <form>
+      <>
         <label htmlFor="name-input">
           <p>Nome de usuário:</p>
           <input
@@ -32,11 +34,11 @@ class Login extends Component {
         >
           Entrar
         </button>
-      </form>
+      </>
     );
 
     return (
-      <div data-testid="page-login">
+      <div data-testid="page-login" className="login-container">
         { loguedIn && <Redirect to="/search" /> }
         { loading
           ? <Loading />
