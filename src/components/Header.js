@@ -14,13 +14,20 @@ class Header extends Component {
   }
 
   componentDidMount() {
+    this.isMount = true;
     this.setState({ loading: true }, async () => {
       const userInfo = await getUser();
-      this.setState({
-        loading: false,
-        user: userInfo.name,
-      });
+      if (this.isMount) {
+        this.setState({
+          loading: false,
+          user: userInfo.name,
+        });
+      }
     });
+  }
+
+  componentWillUnmount() {
+    this.isMount = false;
   }
 
   render() {
