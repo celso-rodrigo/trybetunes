@@ -1,0 +1,46 @@
+header {
+  background-color: var(--color1);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  justify-content: space-around;
+  width: 100vw;
+}
+
+.header-text {
+  align-items: center;
+  border-bottom: 1px solid var(--color2);
+  display: flex;
+  font-size: 2.2rem;
+  justify-content: space-between;
+  padding: 10px 60px;
+}
+
+.header-text p {
+  font-family: var(--font1);
+  margin-top: 10px;
+}
+
+.header-nav {
+  display: flex;
+  height: 50%;
+  justify-content: space-evenly;
+}
+
+.header-nav a {
+  background-color: var(--color1);
+  color: var(--color2);
+  font-family: var(--font2);
+  font-size: 1.5rem;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s;
+  width: 35%;
+}
+
+.header-nav a:hover {
+  background-color: var(--color4);
+}

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
+import '../styles/general.css';
+import '../styles/search.css';
 
 class Search extends Component {
   constructor() {
@@ -27,22 +29,24 @@ class Search extends Component {
     return (
       <div data-testid="page-search">
         <Header />
-        <label htmlFor="search-input">
-          <input
-            id="search-input"
-            type="text"
-            data-testid="search-artist-input"
-            value={ searchBar }
-            onChange={ this.handleSearch }
-          />
-        </label>
-        <button
-          type="button"
-          data-testid="search-artist-button"
-          disabled={ invalidSearch }
-        >
-          Pesquisar
-        </button>
+        <main>
+          <label htmlFor="search-input">
+            <input
+              id="search-input"
+              type="text"
+              data-testid="search-artist-input"
+              value={ searchBar }
+              onChange={ this.handleSearch }
+            />
+          </label>
+          <button
+            type="button"
+            data-testid="search-artist-button"
+            disabled={ invalidSearch }
+          >
+            Pesquisar
+          </button>
+        </main>
       </div>
     );
   }
