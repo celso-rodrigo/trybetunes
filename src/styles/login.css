@@ -1,5 +1,6 @@
 body {
-  background-color: var(--color3);
+  background: linear-gradient(0deg, var(--color4) 0%, var(--color3) 100%);
+  background-size: 100vw 100vh;
   display: flex;
   justify-content: center;
 }
