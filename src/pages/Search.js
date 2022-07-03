@@ -13,7 +13,8 @@ class Search extends Component {
     this.state = {
       loading: false,
       searchResults: undefined,
-      searchBar: '',
+      searchInput: '',
+      searchArtist: '',
       invalidSearch: true,
     };
 
@@ -24,7 +25,7 @@ class Search extends Component {
   handleSearchInput({ target }) {
     const { value } = target;
     this.setState({
-      searchBar: value,
+      searchInput: value,
       invalidSearch: value.length <= 1,
     });
   }
@@ -32,14 +33,17 @@ class Search extends Component {
   async fetchApi(keyWord) {
     this.setState({ loading: true });
     const searchResult = await searchAlbumsAPI(keyWord);
+    const { searchInput } = this.state;
     this.setState({
       searchResults: searchResult,
+      searchArtist: searchInput,
+      searchInput: '',
       loading: false,
     });
   }
 
   searchInputs() {
-    const { searchBar, invalidSearch } = this.state;
+    const { searchInput: searchBar, invalidSearch } = this.state;
     return (
       <div className="search-container">
         <label htmlFor="search-input">
@@ -64,7 +68,7 @@ class Search extends Component {
   }
 
   render() {
-    const { searchResults, loading, searchBar } = this.state;
+    const { searchResults, loading, searchArtist } = this.state;
     return (
       <div data-testid="page-search">
         <Header />
@@ -73,7 +77,7 @@ class Search extends Component {
           : this.searchInputs()}
         <main>
           { searchResults !== undefined
-          && <LoadedArtists artistObj={ searchResults } artistName={ searchBar } /> }
+          && <LoadedArtists artistObj={ searchResults } artistName={ searchArtist } /> }
         </main>
       </div>
     );
