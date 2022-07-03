@@ -30,7 +30,12 @@ body {
 }
 
 button:disabled {
+  cursor: not-allowed;
   opacity: 50%;
+}
+
+button:enabled {
+  cursor: pointer;
 }
 
 .loading-container {
@@ -56,10 +61,6 @@ button:disabled {
 
 .button:hover {
   box-shadow: 0 0 2px var(--color4);
-}
-
-.button:disabled {
-  opacity: 50%;
 }
 
 .loading {

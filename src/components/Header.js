@@ -38,10 +38,10 @@ class Header extends Component {
     return (
       <header data-testid="header-component">
         <div className="header-text">
+          <p>Trybetunes</p>
           { loading
             ? <Loading loading="small loading" />
             : <p data-testid="header-user-name" className="userName">{ user }</p> }
-          <p>Trybetunes</p>
         </div>
         <nav className="header-nav">
           <Link to="/search" data-testid="link-to-search">Search</Link>
