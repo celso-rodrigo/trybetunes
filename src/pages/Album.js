@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends Component {
   constructor() {
@@ -13,6 +14,7 @@ class Album extends Component {
       artist: '',
       album: '',
       musics: [],
+      favSongs: [],
       loading: true,
     };
   }
@@ -20,8 +22,16 @@ class Album extends Component {
   componentDidMount() {
     const { match } = this.props;
     const { id } = match.params;
+    this.recoverFavSongs();
     this.fetchApi(id);
   }
+
+  recoverFavSongs = async () => {
+    const favoritedSongs = await getFavoriteSongs();
+    this.setState({
+      favSongs: favoritedSongs,
+    });
+  };
 
   fetchApi = async (id) => {
     const apiResults = await getMusics(id);
@@ -33,9 +43,18 @@ class Album extends Component {
     });
   };
 
+  checkFavorited = (currSong) => {
+    const { trackId, trackName, previewUrl } = currSong;
+    const { favSongs } = this.state;
+    return favSongs.some((song) => song.trackId === trackId
+      && song.trackName === trackName
+      && song.previewUrl === previewUrl);
+  };
+
   createMusicList = () => {
     const { artist, album, musics } = this.state;
     const songs = musics.filter((song) => song.kind === 'song');
+
     return (
       <div>
         <h2 data-testid="album-name">{ album }</h2>
@@ -46,6 +65,7 @@ class Album extends Component {
             trackName={ song.trackName }
             trackId={ song.trackId }
             previewUrl={ song.previewUrl }
+            favorited={ this.checkFavorited(song) }
           />
         ))}
       </div>
