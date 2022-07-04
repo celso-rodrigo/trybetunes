@@ -14,7 +14,7 @@ class Search extends Component {
       loading: false,
       searchResults: undefined,
       searchInput: '',
-      searchArtist: '',
+      searchArtist: [],
       invalidSearch: true,
     };
 
@@ -31,19 +31,20 @@ class Search extends Component {
   }
 
   async fetchApi(keyWord) {
+    const { searchInput } = this.state;
     this.setState({ loading: true });
     const searchResult = await searchAlbumsAPI(keyWord);
-    const { searchInput } = this.state;
     this.setState({
       searchResults: searchResult,
       searchArtist: searchInput,
       searchInput: '',
+      invalidSearch: true,
       loading: false,
     });
   }
 
   searchInputs() {
-    const { searchInput: searchBar, invalidSearch } = this.state;
+    const { searchInput, invalidSearch } = this.state;
     return (
       <div className="search-container">
         <label htmlFor="search-input">
@@ -51,7 +52,7 @@ class Search extends Component {
             id="search-input"
             type="text"
             data-testid="search-artist-input"
-            value={ searchBar }
+            value={ searchInput }
             onChange={ this.handleSearchInput }
           />
         </label>
@@ -59,7 +60,7 @@ class Search extends Component {
           type="button"
           data-testid="search-artist-button"
           disabled={ invalidSearch }
-          onClick={ () => this.fetchApi(searchBar) }
+          onClick={ () => this.fetchApi(searchInput) }
         >
           Pesquisar
         </button>

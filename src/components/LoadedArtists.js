@@ -36,7 +36,6 @@ LoadedArtists.propTypes = {
     artworkUrl100: PropTypes.string.isRequired,
     collectionId: PropTypes.number.isRequired,
     collectionName: PropTypes.string.isRequired,
-    collectionPrice: PropTypes.number.isRequired,
     releaseDate: PropTypes.string.isRequired,
     trackCount: PropTypes.number.isRequired,
   })).isRequired,
