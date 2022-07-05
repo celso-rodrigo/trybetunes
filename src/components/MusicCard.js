@@ -9,30 +9,46 @@ class MusicCard extends Component {
     super();
 
     this.state = {
-      checked: false,
-      loading: false,
+      loading: true,
+      favSongs: undefined,
     };
+  }
+
+  componentDidMount() {
+    this.setFavState();
+  }
+
+  setFavState = async () => {
+    const favObj = await getFavoriteSongs();
+    this.setState({
+      favSongs: favObj,
+      loading: false,
+    });
   }
 
   handleCheckbox = async ({ target }) => {
     const { checked } = target;
     const { trackName, previewUrl, trackId } = this.props;
 
-    this.setState((prevState) => ({
-      loading: true,
-      checked: !prevState.checked,
-    }));
+    this.setState(({ loading: true }));
+
     if (checked) {
       await addSong({ trackId, trackName, previewUrl });
-      await getFavoriteSongs();
     } else {
       await removeSong({ trackId, trackName, previewUrl });
     }
-    this.setState({ loading: false });
+    this.setFavState();
+  };
+
+  isFavorited = (trackName, previewUrl, trackId) => {
+    const { favSongs } = this.state;
+    return favSongs.some((song) => song.trackId === trackId
+    && song.trackName === trackName
+    && song.previewUrl === previewUrl);
   };
 
   render() {
-    const { loading, checked } = this.state;
+    const { loading } = this.state;
     const { trackName, previewUrl, trackId } = this.props;
 
     const favCheckbox = () => (
@@ -43,7 +59,7 @@ class MusicCard extends Component {
             id={ `fav-${trackName}` }
             type="checkbox"
             data-testid={ `checkbox-music-${trackId}` }
-            checked={ checked }
+            checked={ this.isFavorited(trackName, previewUrl, trackId) }
             onChange={ this.handleCheckbox }
           />
         </div>
