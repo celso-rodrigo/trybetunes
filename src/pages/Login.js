@@ -18,7 +18,7 @@ class Login extends Component {
     const loginPage = () => (
       <>
         <label htmlFor="name-input">
-          <p>Nome de usuário:</p>
+          <h1>Nome de usuário:</h1>
           <input
             id="name-input"
             type="text"

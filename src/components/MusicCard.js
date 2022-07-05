@@ -28,7 +28,7 @@ class MusicCard extends Component {
 
   handleCheckbox = async ({ target }) => {
     const { checked } = target;
-    const { trackName, previewUrl, trackId } = this.props;
+    const { trackName, previewUrl, trackId, reloadFavPage } = this.props;
 
     this.setState(({ loading: true }));
 
@@ -37,6 +37,7 @@ class MusicCard extends Component {
     } else {
       await removeSong({ trackId, trackName, previewUrl });
     }
+    if (window.location.pathname === '/favorites') reloadFavPage();
     this.setFavState();
   };
 
@@ -89,6 +90,7 @@ MusicCard.propTypes = {
   trackName: PropTypes.string.isRequired,
   previewUrl: PropTypes.string.isRequired,
   trackId: PropTypes.number.isRequired,
+  reloadFavPage: PropTypes.func.isRequired,
 };
 
 export default MusicCard;

@@ -71,14 +71,14 @@ button:enabled {
 
 .big {
   border: 25px solid rgb(200, 200, 200);
-  border-top-color: var(--color3);
+  border-top-color: var(--color4);
   height: 150px;
   width: 150px;
 }
 
 .small {
   border: 5px solid rgb(200, 200, 200);
-  border-top-color: var(--color3);
+  border-top-color: var(--color4);
   height: 30px;
   width: 30px;
 }

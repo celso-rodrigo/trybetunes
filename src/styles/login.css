@@ -11,10 +11,10 @@
   width: 450px;
 }
 
-.login-container label p {
-  color: var(--color5);
+.login-container label h1 {
+  color: var(--color3);
   font-family: var(--font1);
-  font-size: 3rem;
+  font-size: 3.2rem;
   margin-bottom: 15px;
   text-align: center;
 }
