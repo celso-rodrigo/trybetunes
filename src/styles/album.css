@@ -1,0 +1,74 @@
+.album-main {
+  align-items: center;
+  background-color: var(--color1);
+  border: 5px solid var(--color4);
+  border-radius: 25px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: auto;
+  padding: 40px 20px;
+  width: 700px;
+}
+
+.album-info {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 50px;
+  width: 100%;
+}
+
+.album-info img {
+  border: 3px solid var(--color4);
+  width: 40%;
+}
+
+.album-info h2 {
+  color: var(--color2);
+  font-family: var(--font2);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.album-info h3 {
+  color: var(--color2);
+  font-family: var(--font2);
+  font-weight: 400;
+}
+
+.music-preview-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.music-preview-container hr {
+  border-color: var(--color2);
+  margin-bottom: 5px;
+  opacity: 0.1;
+  width: 100%;
+}
+
+.music-preview-container h4 {
+  color: var(--color2);
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.fav-container {
+  align-items: baseline;
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+  width: 100px;
+}
+
+.fav-container p {
+  color: var(--color2);
+  font-family: var(--font2);
+  font-size: 1rem;
+}

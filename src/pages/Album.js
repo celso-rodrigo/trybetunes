@@ -5,6 +5,7 @@ import getMusics from '../services/musicsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
+import '../styles/album.css';
 
 class Album extends Component {
   constructor() {
@@ -56,9 +57,12 @@ class Album extends Component {
     const songs = musics.filter((song) => song.kind === 'song');
 
     return (
-      <div>
-        <h2 data-testid="album-name">{ album }</h2>
-        <h3 data-testid="artist-name">{ artist }</h3>
+      <main className="album-main">
+        <div className="album-info">
+          <img src={ musics[0].artworkUrl100 } alt={ `${album} album cover.` } />
+          <h2 data-testid="album-name">{ album }</h2>
+          <h3 data-testid="artist-name">{ artist }</h3>
+        </div>
         { songs.map((song) => (
           <MusicCard
             key={ song.trackId }
@@ -68,7 +72,7 @@ class Album extends Component {
             favorited={ this.checkFavorited(song) }
           />
         ))}
-      </div>
+      </main>
     );
   }
 

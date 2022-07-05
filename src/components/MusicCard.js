@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
+import '../styles/album.css';
 
 class MusicCard extends Component {
   constructor() {
@@ -36,20 +37,23 @@ class MusicCard extends Component {
 
     const favCheckbox = () => (
       <label htmlFor={ `fav-${trackName}` }>
-        Favorita
-        <input
-          id={ `fav-${trackName}` }
-          type="checkbox"
-          data-testid={ `checkbox-music-${trackId}` }
-          checked={ checked }
-          onChange={ this.handleCheckbox }
-        />
+        <div className="fav-container">
+          <p>Favoritar:</p>
+          <input
+            id={ `fav-${trackName}` }
+            type="checkbox"
+            data-testid={ `checkbox-music-${trackId}` }
+            checked={ checked }
+            onChange={ this.handleCheckbox }
+          />
+        </div>
       </label>
     );
 
     return (
-      <div>
-        <p>{ trackName }</p>
+      <div className="music-preview-container">
+        <hr />
+        <h4>{ trackName }</h4>
         <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
           O seu navegador não suporta o elemento
