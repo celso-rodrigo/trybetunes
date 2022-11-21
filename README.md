@@ -3,7 +3,7 @@
 
 <br/>
 
-<h2>O que foi desenvolvido</h2>
+<h2>O quê foi desenvolvido</h2>
 <p>Foi desenvolvida uma aplicação capaz de reproduzir músicas das mais variadas bandas e artistas. Nessa aplicação o usuário é capaz de:</p>
 <ul>
   <li>Fazer login;</li>
@@ -15,7 +15,7 @@
 
 <br/>
   
-<h2>O que foi avaliado</h2>
+<h2>O quê foi avaliado</h2>
 <ul>
   <li>Aderência do código às especificações</li>
   <li>Organização do código. Quebra do site em componentes pequenos, simples e bem definidos.</li>
