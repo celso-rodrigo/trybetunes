@@ -23,7 +23,7 @@
 
 <br/>
 
-<h3>Guia de instalação</h3> 
+<h2>Guia de instalação</h2> 
 <ol>
   <li>
     <p>Clone o repositório</p>
