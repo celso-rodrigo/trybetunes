@@ -11,7 +11,7 @@
   <li>Listar os álbuns disponíveis dessa banda ou artista;</li>
   <li>Visualizar as músicas de um álbum selecionado;</li>
   <li>Reproduzir uma prévia das músicas deste álbum.</li>
-<ul>
+</ul>
 
 <br/>
   
